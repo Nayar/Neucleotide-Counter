@@ -30,8 +30,8 @@ for s in sequences_array:
   total.append([count_a,count_c,count_t,count_g,total_length])
   
 for sequence in sequences_array:
-  print sequence
+  print (sequence)
   
 for t in total:
-  print "%d %d %d %d %d" % (t[0],t[1],t[2],t[3],t[4])
+  print ("%d %d %d %d %d" % (t[0],t[1],t[2],t[3],t[4]))
       
