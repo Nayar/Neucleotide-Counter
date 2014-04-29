@@ -37,11 +37,30 @@ for s in sequences_array:
 def calc_total_sequence_mass(no_of_a, no_of_c, no_of_t, no_of_g):
   return no_of_a * mass_a + no_of_c * mass_c + no_of_t * mass_t + no_of_g * mass_g
 
+mininum_mass = 99999999 # should be infinity
+mininum_mass_sequence_number = 0
+maximum_mass = 0
+maximum_mass_sequence_number = 0
+total_mass = 0
+
 for i in range(len(sequences_array)):
   print(sequences_array[i])
-  print("Total Mass: %d" % calc_total_sequence_mass(total[i][0],total[i][1],total[i][2],total[i][3]))
+  mass = calc_total_sequence_mass(total[i][0],total[i][1],total[i][2],total[i][3])
+  print("Total Mass: %d" % mass)
+  
+  total_mass += mass
+  if(mass < mininum_mass):
+    mininum_mass = mass
+    mininum_mass_sequence_number = i
+  if(mass > maximum_mass):
+    maximum_mass = mass
+    maximum_mass_sequence_number = i
   print("---------------------")
   
-  
+print("Lowest mass is %d" % mininum_mass)
+print("Highest mass is %d " % maximum_mass)
+print("Average mass is %d " % (total_mass / len(sequences_array)))
+print("Lowest mass sequence is: %s with mass %d" % (sequences_array[mininum_mass_sequence_number], mininum_mass))
+print("Highest mass sequence is %s with mass %d" % (sequences_array[maximum_mass_sequence_number], maximum_mass))
 
 
